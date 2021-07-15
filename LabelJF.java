@@ -45,7 +45,7 @@ public class LabelJF extends JLabel {
         Font fuente = new Font("MV Boli", Font.PLAIN,20);
         this.setFont(fuente);
 
-        //alineación respecto al frame
+        //alineación respecto al contenedor
         this.setHorizontalAlignment(LabelJF.CENTER);
         this.setVerticalAlignment(LabelJF.CENTER);
 
