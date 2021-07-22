@@ -1,10 +1,11 @@
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
-
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -65,7 +66,6 @@ public class Main{
         JPanel panelSur = new JPanel();
         JPanel panelNorte = new JPanel();
         JPanel panelIzquierda = new JPanel();
-        JPanel panelDerecha = new JPanel();
         JPanel panelCentral = new JPanel();
 
         //-------------Panel del sur------------------------//
@@ -75,17 +75,17 @@ public class Main{
 
         //-------------Panel del norte------------------------//
 
-        panelNorte.setPreferredSize(new Dimension(500,50));
+        panelNorte.setPreferredSize(new Dimension(500,70));
         panelNorte.setBackground(Color.black);
         panelNorte.setLayout(new BorderLayout(10,10));
 
         JPanel panelNorteIzquierda = new JPanel();
-        panelNorteIzquierda.setPreferredSize(new Dimension(25,50));
+        panelNorteIzquierda.setPreferredSize(new Dimension(70,70));
         panelNorteIzquierda.setBackground(Color.black);
-        panelNorteIzquierda.setLayout(new BorderLayout());
+        panelNorteIzquierda.setLayout(new FlowLayout());
 
         JPanel panelNorteCentro = new JPanel();
-        panelNorteCentro.setPreferredSize(new Dimension(100,50));
+        panelNorteCentro.setPreferredSize(new Dimension(100,70));
         panelNorteCentro.setBackground(Color.black);
         panelNorteCentro.setLayout(new BorderLayout());
 
@@ -99,40 +99,40 @@ public class Main{
         BotonAparecerDesaparecer botonMenu = new BotonAparecerDesaparecer(panelIzquierda);
         botonMenu.setHorizontalAlignment(BotonAparecerDesaparecer.CENTER);
         botonMenu.setVerticalAlignment(BotonAparecerDesaparecer.CENTER);
-        botonMenu.setFocusable(false);
+        botonMenu.setContentAreaFilled(false);
+        botonMenu.setBorderPainted(false);
         botonMenu.setBackground(Color.black);
             ImageIcon imgMenu = new ImageIcon("img/menuLogo.png");
             Icon imgMenuRezised = new ImageIcon(imgMenu.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
         botonMenu.setIcon(imgMenuRezised);
 
-        panelNorteIzquierda.add(titulo);
-        panelNorteCentro.add(botonMenu);
+        panelNorteIzquierda.add(botonMenu);
+        panelNorteCentro.add(titulo);
 
-        panelNorte.add(panelNorteCentro, BorderLayout.WEST);
-        panelNorte.add(panelNorteIzquierda, BorderLayout.CENTER);
+        panelNorte.add(panelNorteCentro, BorderLayout.CENTER);
+        panelNorte.add(panelNorteIzquierda, BorderLayout.WEST);
 
         //-------------Panel de la izquierda------------------------//
 
         panelIzquierda.setPreferredSize(new Dimension(200,100));
         panelIzquierda.setBackground(new Color(36, 43, 46 ));
 
-        //-------------Panel de la derecha------------------------//
-
-        panelDerecha.setPreferredSize(new Dimension(20,100));
-        panelDerecha.setBackground(new Color(36, 43, 46 ));
-
         //-------------Panel del centro------------------------//
 
-        panelCentral.setPreferredSize(new Dimension(50,100));
+        panelCentral.setPreferredSize(new Dimension(5000,10000));
         panelCentral.setBackground(new Color(136, 148, 153 ));
+
+        JScrollPane panelCentro = new JScrollPane();
+        panelCentro.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        panelCentro.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        panelCentro.setViewportView(panelCentral);
 
         //-------------complementos de la ventana------------------------//
 
         ventana1.add(panelSur, BorderLayout.SOUTH);
         ventana1.add(panelNorte, BorderLayout.NORTH);
         ventana1.add(panelIzquierda, BorderLayout.WEST);
-        ventana1.add(panelDerecha, BorderLayout.EAST);
-        ventana1.add(panelCentral, BorderLayout.CENTER);
+        ventana1.add(panelCentro, BorderLayout.CENTER);
         ventana1.setVisible(true);
 
     }

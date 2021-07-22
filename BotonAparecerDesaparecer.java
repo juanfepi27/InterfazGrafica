@@ -12,7 +12,6 @@ public class BotonAparecerDesaparecer extends JButton implements ActionListener 
         super();
         this.Fuente = Fuente;
         this.setPreferredSize(new Dimension(50,50));
-        this.setVisible(true); 
         this.addActionListener(this);
         
     }
